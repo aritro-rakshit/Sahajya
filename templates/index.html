@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XCAAB Covid Helpline</title>
+    <!-- <script type="text/javascript">
+        setTimeout(function () { 
+          location.reload();
+        }, 10 * 1000);
+    </script> -->
+    <style>
+        #contact .card:hover i,#contact .card:hover h4{
+	color: #87d37c;
+    }
+    </style>
+    <link rel="icon" href="images.png" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="/">Xavier's College Alumni Association</a>
+      
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav" ml-auto>
+            <li class="nav-item">
+              <a class="nav-link" href="#hospital">Verified Hospital beds Leads</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#oxygen">Oxygen Leads</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact us in case of EMERGENCY </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <!-- <h1 class="display-5">Covid 19 Resource Tracker</h1> -->
+    <div class="jumbotron">
+        <h1 class="display-5">Covid-19 Resource Tracker</h1>      
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum purus at sem ornare sodales. Morbi leo nulla, pharetra vel felis nec, ullamcorper condimentum quam.</p>
+      </div>
+    <div name="hospital" id="hospital">
+    <h3 class="text-center">Hospital Bed Availability</h3>
+    <table class="table table-striped table-dark">
+        <tr>
+            {% for header in heading %}
+            <th scope="col">{{header}}</th>
+            {% endfor %}
+        </tr>
+        {% for row in data %}
+        <tr>
+            {% for cell in row %}
+            <td scope="row">{{cell}}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+    <div name="oxygen" id="oxygen">
+    <h3 class="text-center">Oxygen Leads</h3>
+    <table class="table table-striped">
+        <tr>
+            {% for header_1 in heading_1 %}
+            <th scope="col">{{header_1}}</th>
+            {% endfor %}
+        </tr>
+        {% for row_1 in data_1 %}
+        <tr>
+            {% for cell_1 in row_1 %}
+            <td scope="row">{{cell_1}}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+    <div name="contact" id="contact">
+    <section id="contact">
+        <div class="container">
+            <h3 class="text-center text-uppercase">contact us</h3>
+            <p class="text-center w-75 m-auto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum purus at sem ornare sodales. Morbi leo nulla, pharetra vel felis nec, ullamcorper condimentum quam.</p>
+            <div class="row">
+              <div class="col-sm-12 col-md-6 col-lg-3 my-5">
+                <div class="card border-0">
+                   <div class="card-body text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-phone" viewBox="0 0 16 16">
+                        <path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z"/>
+                        <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                      </svg>
+                     <h4 class="text-uppercase mb-5">call us</h4>
+                     <p>+8801683615582,+8801750603409</p>
+                   </div>
+                 </div>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-3 my-5">
+                <div class="card border-0">
+                   <div class="card-body text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                      </svg>
+                     <h4 class="text-uppercase mb-5">locate us</h4>
+                    <address>Alumni Office, Administrative Building (Ground Floor), St. Xavier’s College, St. Xavier’s Road, P.O – Sripally, District – Purba Bardhaman, Pin- 713 103, West Bengal, India </address>
+                   </div>
+                 </div>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-3 my-5">
+                <div class="card border-0">
+                   <div class="card-body text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+                      </svg>
+                     <h4 class="text-uppercase mb-5">Whatsapp</h4>
+                     <a href="https://chat.whatsapp.com/JJgb9sTXuyKIVOaFUMpw76">Helpline 24*7</a>
+                   </div>
+                 </div>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-3 my-5">
+                <div class="card border-0">
+                   <div class="card-body text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-rss" viewBox="0 0 16 16">
+                        <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                        <path d="M5.5 12a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-3-8.5a1 1 0 0 1 1-1c5.523 0 10 4.477 10 10a1 1 0 1 1-2 0 8 8 0 0 0-8-8 1 1 0 0 1-1-1zm0 4a1 1 0 0 1 1-1 6 6 0 0 1 6 6 1 1 0 1 1-2 0 4 4 0 0 0-4-4 1 1 0 0 1-1-1z"/>
+                      </svg>
+                     <h4 class="text-uppercase mb-5">Feedback</h4>
+                     <a href="http://google.com">Write to us</a>
+                   </div>
+                 </div>
+              </div>
+            </div>
+        </div>
+     </section>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Footer -->
+<footer class="page-footer font-small blue">
+
+    <div class="footer-copyright text-center py-3">Visit our Alumni Website:
+      <a href="https://xcaab.com/">xcaab.com</a>
+    </div>
+  
+  </footer>
+  <!-- Footer -->
+</body>
+</html>
