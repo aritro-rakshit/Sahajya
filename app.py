@@ -1,5 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template,request
 import urllib.request, json      
+import requests
 
 app = Flask(__name__)
 headings=[]
@@ -50,6 +51,21 @@ def home():
         C_1.append(x)
         i=i+1
     return render_template('index.html', heading=headings, data=B, heading_1=headings_1, data_1=B_1)
-   
+@app.route("/contact", methods =["GET", "POST"])
+def contact():
+    if request.method == "POST":
+       name_1 = request.form.get("name_1")
+       contact_1 = request.form.get("contact_1")
+       query_1 = request.form.get("query_1")
+       msg=[name_1,contact_1,query_1]
+       base_url = 'https://api.telegram.org/bot1666558244:AAEX4roH11bGFKUhV_e9MFHCl7iA1UP3S6Q/sendMessage?chat_id=-583194863&text=Name:{}'.format(msg[0])
+       requests.get(base_url)
+       base_url1 = 'https://api.telegram.org/bot1666558244:AAEX4roH11bGFKUhV_e9MFHCl7iA1UP3S6Q/sendMessage?chat_id=-583194863&text=Contact:{}'.format(msg[1])
+       requests.get(base_url1)
+       base_url2 = 'https://api.telegram.org/bot1666558244:AAEX4roH11bGFKUhV_e9MFHCl7iA1UP3S6Q/sendMessage?chat_id=-583194863&text=Query:{}'.format(msg[2])
+       requests.get(base_url2)
+    
+    return render_template('contact.html')
+       
 if __name__ == "__main__":
     app.run(use_reloader = True,debug=True)
