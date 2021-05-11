@@ -3,6 +3,7 @@ import urllib.request, json
 import requests
 import os
 from twilio.rest import Client
+import json
 
 app = Flask(__name__)
 headings=[]
@@ -55,44 +56,55 @@ def home():
     return render_template('index.html', heading=headings, data=B, heading_1=headings_1, data_1=B_1)
 @app.route("/contact", methods =["GET", "POST"])
 def contact():
+    verify="a"
     if request.method == "POST":
        name_1 = request.form.get("name_1")
        contact_1 = request.form.get("contact_1")
        query_1 = request.form.get("query_1")
+       clientKey= request.form.get("g-recaptcha-response")
+       secretKey='6LdWCtAaAAAAANf2fQ2bAFf59A8m7E9FBphOk1hP'
        msg=[name_1,contact_1,query_1]
-       base_url = 'https://api.telegram.org/bot1666558244:AAEX4roH11bGFKUhV_e9MFHCl7iA1UP3S6Q/sendMessage?chat_id=-583194863&text=Name:{}'.format(msg[0])
-       requests.get(base_url)
-       base_url1 = 'https://api.telegram.org/bot1666558244:AAEX4roH11bGFKUhV_e9MFHCl7iA1UP3S6Q/sendMessage?chat_id=-583194863&text=Contact:{}'.format(msg[1])
-       requests.get(base_url1)
-       base_url2 = 'https://api.telegram.org/bot1666558244:AAEX4roH11bGFKUhV_e9MFHCl7iA1UP3S6Q/sendMessage?chat_id=-583194863&text=Query:{}'.format(msg[2])
-       requests.get(base_url2)
-       account_sid = 'ACca9a08403d7ed1350ba2610187bd2911'
-       auth_token = '03c6e18f112fed2728a758a359571d40'
-       client = Client(account_sid, auth_token)
+       captchaData={
+           "secret":secretKey,
+           "response":clientKey
+       }
+       r=requests.post('https://www.google.com/recaptcha/api/siteverify', data=captchaData)
+       response=json.loads(r.text)
+       verify=response['success']
+       if verify:
+            base_url = 'https://api.telegram.org/bot1666558244:AAEX4roH11bGFKUhV_e9MFHCl7iA1UP3S6Q/sendMessage?chat_id=-583194863&text=Name:{}'.format(msg[0])
+            requests.get(base_url)
+            base_url1 = 'https://api.telegram.org/bot1666558244:AAEX4roH11bGFKUhV_e9MFHCl7iA1UP3S6Q/sendMessage?chat_id=-583194863&text=Contact:{}'.format(msg[1])
+            requests.get(base_url1)
+            base_url2 = 'https://api.telegram.org/bot1666558244:AAEX4roH11bGFKUhV_e9MFHCl7iA1UP3S6Q/sendMessage?chat_id=-583194863&text=Query:{}'.format(msg[2])
+            requests.get(base_url2)
+            account_sid = 'ACca9a08403d7ed1350ba2610187bd2911'
+            auth_token = '03c6e18f112fed2728a758a359571d40'
+            client = Client(account_sid, auth_token)
 
-       message = client.messages.create(
-                              body='Name:'+name_1+"\n"+"Contact:"+contact_1+"\n"+"Query:"+query_1,
-                              from_='whatsapp:+14155238886',
-                              to='whatsapp:+917908594645'
-                          )
-       message = client.messages.create(
-                              body='Name:'+name_1+"\n"+"Contact:"+contact_1+"\n"+"Query:"+query_1,
-                              from_='whatsapp:+14155238886',
-                              to='whatsapp:+917076158941'
-                          )
-       message = client.messages.create(
-                              body='Name:'+name_1+"\n"+"Contact:"+contact_1+"\n"+"Query:"+query_1,
-                              from_='whatsapp:+14155238886',
-                              to='whatsapp:+917365025556'
-                          )
-       message = client.messages.create(
-                              body='Name:'+name_1+"\n"+"Contact:"+contact_1+"\n"+"Query:"+query_1,
-                              from_='whatsapp:+14155238886',
-                              to='whatsapp:+917908006791'
-                          )
+            message = client.messages.create(
+                                    body='Name:'+name_1+"\n"+"Contact:"+contact_1+"\n"+"Query:"+query_1,
+                                    from_='whatsapp:+14155238886',
+                                    to='whatsapp:+917908594645'
+                                )
+            message = client.messages.create(
+                                    body='Name:'+name_1+"\n"+"Contact:"+contact_1+"\n"+"Query:"+query_1,
+                                    from_='whatsapp:+14155238886',
+                                    to='whatsapp:+917076158941'
+                                )
+            message = client.messages.create(
+                                    body='Name:'+name_1+"\n"+"Contact:"+contact_1+"\n"+"Query:"+query_1,
+                                    from_='whatsapp:+14155238886',
+                                    to='whatsapp:+917365025556'
+                                )
+            message = client.messages.create(
+                                    body='Name:'+name_1+"\n"+"Contact:"+contact_1+"\n"+"Query:"+query_1,
+                                    from_='whatsapp:+14155238886',
+                                    to='whatsapp:+917908006791'
+                                )
 
     
-    return render_template('contact.html')
+    return render_template('contact.html',ver=verify)
        
 if __name__ == "__main__":
     app.run(use_reloader = True,debug=True)

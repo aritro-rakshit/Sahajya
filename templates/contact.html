@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+   
     <title>send us your query</title>
   </head>
   <body>
@@ -16,7 +16,7 @@
        <div class="jumbotron">
         
         <h5 class="display-4">Send us your query</h5>
-       <form method="POST">
+       <form method="POST" id="form1">
         <div class="form-group">
           <label for="name_1">Your Name:</label>
           <input type="text" class="form-control" id="name_1" name="name_1" required>
@@ -26,9 +26,13 @@
             <input type="text" class="form-control" id="contact_1" name="contact_1" required>
           </div>
         <div class="form-group">
-          <label for="query_1">Query</label>
+          <label for="query_1">Query:</label>
           <textarea class="form-control" id="query_1" name="query_1" rows="3" required></textarea>
         </div>
+        <div class="g-recaptcha" data-sitekey="6LdWCtAaAAAAAD4d2rxBADnDV6uf7inW5_ok5w19"></div><br>
+        {% if ver==False %}
+          <p class="text-danger">Wrong Captcha</p>
+        {% endif %}
         <button type="submit" class="btn btn-primary">Send</button>
       </form>
     </div>
