@@ -1,6 +1,8 @@
 from flask import Flask, render_template,request
 import urllib.request, json      
 import requests
+import os
+from twilio.rest import Client
 
 app = Flask(__name__)
 headings=[]
@@ -64,6 +66,26 @@ def contact():
        requests.get(base_url1)
        base_url2 = 'https://api.telegram.org/bot1666558244:AAEX4roH11bGFKUhV_e9MFHCl7iA1UP3S6Q/sendMessage?chat_id=-583194863&text=Query:{}'.format(msg[2])
        requests.get(base_url2)
+       account_sid = 'ACca9a08403d7ed1350ba2610187bd2911'
+       auth_token = '03c6e18f112fed2728a758a359571d40'
+       client = Client(account_sid, auth_token)
+
+       message = client.messages.create(
+                              body='Name:'+name_1+"\n"+"Contact:"+contact_1+"\n"+"Query:"+query_1,
+                              from_='whatsapp:+14155238886',
+                              to='whatsapp:+917908594645'
+                          )
+       message = client.messages.create(
+                              body='Name:'+name_1+"\n"+"Contact:"+contact_1+"\n"+"Query:"+query_1,
+                              from_='whatsapp:+14155238886',
+                              to='whatsapp:+917076158941'
+                          )
+       message = client.messages.create(
+                              body='Name:'+name_1+"\n"+"Contact:"+contact_1+"\n"+"Query:"+query_1,
+                              from_='whatsapp:+14155238886',
+                              to='whatsapp:+917365025556'
+                          )
+
     
     return render_template('contact.html')
        
