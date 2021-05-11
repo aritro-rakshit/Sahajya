@@ -85,6 +85,11 @@ def contact():
                               from_='whatsapp:+14155238886',
                               to='whatsapp:+917365025556'
                           )
+       message = client.messages.create(
+                              body='Name:'+name_1+"\n"+"Contact:"+contact_1+"\n"+"Query:"+query_1,
+                              from_='whatsapp:+14155238886',
+                              to='whatsapp:+917908006791'
+                          )
 
     
     return render_template('contact.html')
