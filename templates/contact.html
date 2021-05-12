@@ -16,6 +16,11 @@
        <div class="jumbotron">
         
         <h5 class="display-4">Send us your query</h5>
+        {% if ver==True %}
+        <div class="alert alert-success" role="alert">
+          Query sent to the volunteers
+        </div>
+        {% endif %}
        <form method="POST" id="form1">
         <div class="form-group">
           <label for="name_1">Your Name:</label>
@@ -31,7 +36,7 @@
         </div>
         <div class="g-recaptcha" data-sitekey="6LdWCtAaAAAAAD4d2rxBADnDV6uf7inW5_ok5w19"></div><br>
         {% if ver==False %}
-          <p class="text-danger">Wrong Captcha</p>
+          <p class="text-danger">Captcha verification failed!</p>
         {% endif %}
         <button type="submit" class="btn btn-primary">Send</button>
       </form>
