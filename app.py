@@ -138,11 +138,11 @@ def imp():
         content_2=(each_entry_2['content'])
         itms_2.append(content_2['$t'])
     headings_2=itms_2[:2]
-    infos=itms_2[2:]
+    infos_2=itms_2[2:]
     i=0
     B_2 = []
     C_2 = []
-    for x in infos:
+    for x in infos_2:
         if(i%2==0):
             C_2 = []
             B_2.append(C_2)
@@ -163,12 +163,13 @@ def imp():
     i=0
     B_3 = []
     C_3 = []
-    for x in infos:
+    for x in infos_3:
         if(i%2==0):
             C_3 = []
             B_3.append(C_3)
         C_3.append(x)
         i=i+1
+    print(B_3)
     return render_template('imp.html',heading=headings, data=B,headings_1=headings_1, data_1=B_1,headings_2=headings_2, data_2=B_2,headings_3=headings_3, data_3=B_3)
        
 if __name__ == "__main__":
