@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+
+        table th {
+        text-align: center; 
+        }
+        table tr {
+        text-align: center; 
+        }
+
+
+        .table {
+        margin: auto;
+        width: 85% !important; 
+        }
+        .my-heading {
+        margin: auto;
+        width: 85% !important; 
+        }
+        
+    </style>
+    <title>Important Contacts</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <a href="https://xcaab-helpline.herokuapp.com/" style="text-decoration:none"><h4 class="text-light">Xavier's College Alumni Association of Burdwan Covid-19 Helpline</h4></a>
+       </nav>
+       <div class="jumbotron">
+        <h1 class="display-5">Important Contacts</h1>
+          <p>
+            *Please Note : At any circumstances, XCAAB is not responsible for any monetary dealings with vendors or with the administration of the Hospitals/Nursing Homes whose numbers are listed in our website. Please, Verify before dealing with any monetary activities.
+          </p>
+          <p>
+            *যে কোনও পরিস্থিতিতে আমাদের ওয়েবসাইটে তালিকাভুক্ত বিক্রেতাদের সাথে বা হাসপাতাল / নার্সিং হোমগুলির প্রশাসনের সাথে কোনও আর্থিক লেনদেনের জন্য XCAAB দায়বদ্ধ নয়, কোনো আর্থিক লেনদেনের আগে যাচাই করুন।
+          </p>    
+        
+      </div>
+      <div class="my-heading p-3 mb-2 bg-secondary text-white">
+       <h1 class="display-6 text-center">Medicine Vendors</h1>
+    </div>
+       <table class="table table-striped table-dark">
+        <tr>
+            {% for header in heading %}
+            <th scope="col">{{header}}</th>
+            {% endfor %}
+        </tr>
+        {% for row in data %}
+        <tr>
+            {% for cell in row %}
+            <td scope="row">{{cell}}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+    <br>
+    <div class="my-heading p-3 mb-2 bg-secondary text-white">
+    <h1 class="display-6 text-center">Covid-19 Testing</h1>
+    </div>
+    <table class="table table-striped table-dark">
+        <tr>
+            {% for header_1 in headings_1 %}
+            <th scope="col">{{header_1}}</th>
+            {% endfor %}
+        </tr>
+        {% for row_1 in data_1 %}
+        <tr>
+            {% for cell_1 in row_1 %}
+            <td scope="row">{{cell_1}}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+    <br>
+    <div class="my-heading p-3 mb-2 bg-secondary text-white">
+    <h1 class="display-6 text-center">Food Delivery</h1>
+    </div>
+
+    <table class="table table-striped table-dark">
+        <tr>
+            {% for header_2 in headings_2 %}
+            <th scope="col">{{header_2}}</th>
+            {% endfor %}
+        </tr>
+        {% for row_2 in data_2 %}
+        <tr>
+            {% for cell_2 in row_2 %}
+            <td scope="row">{{cell_2}}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+    <br>
+    <div class="my-heading p-3 mb-2 bg-secondary text-white" >
+    <h1 class="display-6 text-center">Sanitization</h1>
+    </div>
+    <table class="table table-striped table-dark">
+        <tr>
+            {% for header_3 in headings_3 %}
+            <th scope="col">{{header_3}}</th>
+            {% endfor %}
+        </tr>
+        {% for row_3 in data_3 %}
+        <tr>
+            {% for cell_3 in row_3 %}
+            <td scope="row">{{cell_3}}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+      
+    <footer class="page-footer font-small blue">
+
+        <div class="footer-copyright text-center py-3">Visit our Alumni Website:
+          <a href="https://xcaab.com/">xcaab.com</a>
+        </div>
+      
+      </footer>
+
+  
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

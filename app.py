@@ -81,6 +81,95 @@ def contact():
 
     
     return render_template('contact.html',ver=verify)
+@app.route("/imp")
+def imp():
+    #Medicine
+    url = "https://spreadsheets.google.com/feeds/cells/1CZ-rZeN8nh6gNBAvsy0079-l4ltfMKvPKgb0BNGyP_8/od6/public/basic?alt=json"
+    response = urllib.request.urlopen(url)
+    data = json.loads(response.read())
+    feed=data['feed']
+    entry=feed['entry']
+    itms=[]
+    for each_entry in entry:
+        content=(each_entry['content'])
+        itms.append(content['$t'])
+    headings=itms[:2]
+    infos=itms[2:]
+    i=0
+    B = []
+    C = []
+    for x in infos:
+        if(i%2==0):
+            C = []
+            B.append(C)
+        C.append(x)
+        i=i+1
+    
+    #Testing
+    url_1 = "https://spreadsheets.google.com/feeds/cells/1XAeSd7_8YSl5P8Xvjk2XmQ7bfdDeJBrU4MIv7LJCgZk/od6/public/basic?alt=json"
+    response_1 = urllib.request.urlopen(url_1)
+    data_1 = json.loads(response_1.read())
+    feed_1=data_1['feed']
+    entry_1=feed_1['entry']
+    itms_1=[]
+    for each_entry_1 in entry_1:
+        content_1=(each_entry_1['content'])
+        itms_1.append(content_1['$t'])
+    headings_1=itms_1[:2]
+    infos_1=itms_1[2:]
+    i=0
+    B_1 = []
+    C_1 = []
+    for x in infos_1:
+        if(i%2==0):
+            C_1 = []
+            B_1.append(C_1)
+        C_1.append(x)
+        i=i+1
+
+    # Food Delivery
+    url_2 = "https://spreadsheets.google.com/feeds/cells/1MB84Gkn22G_RJ1_V76ho2cJQQbYqZA2TWK3BEy3j6S4/od6/public/basic?alt=json"
+    response_2 = urllib.request.urlopen(url_2)
+    data_2 = json.loads(response_2.read())
+    feed_2=data_2['feed']
+    entry_2=feed_2['entry']
+    itms_2=[]
+    for each_entry_2 in entry_2:
+        content_2=(each_entry_2['content'])
+        itms_2.append(content_2['$t'])
+    headings_2=itms_2[:2]
+    infos=itms_2[2:]
+    i=0
+    B_2 = []
+    C_2 = []
+    for x in infos:
+        if(i%2==0):
+            C_2 = []
+            B_2.append(C_2)
+        C_2.append(x)
+        i=i+1
+    # Sanitization
+    url_3 = "https://spreadsheets.google.com/feeds/cells/1W9qPXnzN6KQc_A3Gm8PwKZO_whAdehhaFqqzMOrtwPg/od6/public/basic?alt=json"
+    response_3 = urllib.request.urlopen(url_3)
+    data_3 = json.loads(response_3.read())
+    feed_3=data_3['feed']
+    entry_3=feed_3['entry']
+    itms_3=[]
+    for each_entry_3 in entry_3:
+        content_3=(each_entry_3['content'])
+        itms_3.append(content_3['$t'])
+    headings_3=itms_3[:2]
+    infos_3=itms_3[2:]
+    i=0
+    B_3 = []
+    C_3 = []
+    for x in infos:
+        if(i%2==0):
+            C_3 = []
+            B_3.append(C_3)
+        C_3.append(x)
+        i=i+1
+    return render_template('imp.html',heading=headings, data=B,headings_1=headings_1, data_1=B_1,headings_2=headings_2, data_2=B_2,headings_3=headings_3, data_3=B_3)
        
 if __name__ == "__main__":
     app.run(use_reloader = True,debug=True)
