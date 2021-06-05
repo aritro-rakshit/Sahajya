@@ -2,7 +2,6 @@ from flask import Flask, render_template,request
 import urllib.request, json      
 import requests
 import os
-from twilio.rest import Client
 import json
 
 app = Flask(__name__)
